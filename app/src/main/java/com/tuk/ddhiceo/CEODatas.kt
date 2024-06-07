@@ -15,7 +15,7 @@ import retrofit2.http.Query
 //p_nm2: 공동 창업주
 //b_nm: 상호
 //corp_no: 법인 등록번호
-//b_sector: 주업태명
+//b_sector: 주업태명 (업종)
 //b_type: 주종목명
 //b_adr: 소재지
 data class Business(
