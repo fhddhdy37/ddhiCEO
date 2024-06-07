@@ -53,4 +53,5 @@ dependencies {
     // 외부 라이브러리는 여기에 작성
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.github.yuriy-budiyev:code-scanner:2.3.2")
 }
