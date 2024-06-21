@@ -1,5 +1,6 @@
 package com.tuk.ddhiceo
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tuk.ddhiceo.databinding.ActivityMainBinding
@@ -8,6 +9,7 @@ class MainActivity : AppCompatActivity() {
 
     private var mBinding: ActivityMainBinding? = null
     private val binding get() = mBinding!!
+    private val ACTICITY_RESULT_CODE = 849
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +43,9 @@ class MainActivity : AppCompatActivity() {
                 ft.replace(R.id.main_frame, Frag1()).commitNow()
             }
             1 -> {
-                ft.replace(R.id.main_frame, Frag2()).commitNow()
+                //ft.replace(R.id.main_frame, Frag2()).commitNow()
+                var intent = Intent(this, QRScannerActivity::class.java)
+                startActivityForResult(intent, ACTICITY_RESULT_CODE)
             }
             2 -> {
                 ft.replace(R.id.main_frame, Frag3()).commitNow()
