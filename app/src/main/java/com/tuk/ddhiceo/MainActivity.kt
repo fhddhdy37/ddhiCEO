@@ -30,7 +30,9 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        setFrag(0)
+
+        val targetFragment = intent.getIntExtra("TARGET_FRAGMENT", 0)
+        setFrag(targetFragment)
     }
 
     private fun setFrag(fragNum: Int): Boolean {
