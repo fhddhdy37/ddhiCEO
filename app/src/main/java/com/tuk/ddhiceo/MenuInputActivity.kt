@@ -4,17 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import android.widget.Toast
 
-class Menuinput : AppCompatActivity() {
+class MenuInputActivity : AppCompatActivity() {
     private var editPosition: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menuinput)
+        setContentView(R.layout.activity_menu_input)
 
         val menuNameEditText: EditText = findViewById(R.id.menu_name)
         val menuPriceEditText: EditText = findViewById(R.id.menu_price)
@@ -62,7 +65,7 @@ class Menuinput : AppCompatActivity() {
                 apply()
             }
 
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, BottomActivity::class.java)
             startActivity(intent)
         }
     }

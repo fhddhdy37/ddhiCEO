@@ -51,7 +51,7 @@ class SetCouponActivity : AppCompatActivity() {
     }
 
     private fun returnToMenuBoard() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, BottomActivity::class.java)
         intent.putExtra("TARGET_FRAGMENT", 0)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)

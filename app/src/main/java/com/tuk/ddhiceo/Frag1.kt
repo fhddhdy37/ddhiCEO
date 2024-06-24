@@ -27,7 +27,7 @@ class Frag1 : Fragment(), MenuAdapter.OnMenuItemClickListener {
 
         val button: Button = view.findViewById(R.id.menu_button)
         button.setOnClickListener {
-            val intent = Intent(activity, Menuinput::class.java)
+            val intent = Intent(activity, MenuInputActivity::class.java)
             startActivity(intent)
         }
 
@@ -49,7 +49,7 @@ class Frag1 : Fragment(), MenuAdapter.OnMenuItemClickListener {
     }
 
     override fun onEditClick(position: Int) {
-        val intent = Intent(activity, Menuinput::class.java).apply {
+        val intent = Intent(activity, MenuInputActivity::class.java).apply {
             putExtra("position", position)
             putExtra("menu_name", menuList[position].name)
             putExtra("menu_price", menuList[position].price)

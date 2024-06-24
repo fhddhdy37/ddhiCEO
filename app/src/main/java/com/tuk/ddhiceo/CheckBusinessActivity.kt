@@ -1,6 +1,7 @@
 package com.tuk.ddhiceo
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -39,6 +40,7 @@ class CheckBusinessActivity : AppCompatActivity() {
     private val baseUrl = "https://api.odcloud.kr/api/nts-businessman/v1/"
     private val encodeKey = "SM%2By3IUAeEUhKQKcYvJLUphzvNTj20ZtrId%2BLt09CM2KN8GHa9KmFwSah403v%2BozraNflikVe0DCFidXYwNiKw%3D%3D"
     private val decodeKey = "SM+y3IUAeEUhKQKcYvJLUphzvNTj20ZtrId+Lt09CM2KN8GHa9KmFwSah403v+ozraNflikVe0DCFidXYwNiKw=="
+    private val API_REQUEST_CODE = 639
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +68,7 @@ class CheckBusinessActivity : AppCompatActivity() {
             )
             val requestBody = BusinessRequestBodyData(listOf(business))
             val gson = Gson()
-            val dlg = AlertDialog.Builder(this@CheckBusinessActivity)
+            val dlg = AlertDialog.Builder(this)
 
             service.postData(decodeKey, "JSON", requestBody).enqueue(object: Callback<BusinessApiResponse> {
                 override fun onResponse(call: Call<BusinessApiResponse>, response: Response<BusinessApiResponse>) {
@@ -75,8 +77,13 @@ class CheckBusinessActivity : AppCompatActivity() {
                     if(response.isSuccessful){
                         if(apiResponse!!.data[0]!!.valid == "01"){
                             dlg.setMessage("사업자 확인이 완료되었습니다.")
-                            dlg.setPositiveButton("OK", null)
+                            dlg.setPositiveButton("OK",
+                                DialogInterface.OnClickListener{dialog, which ->
+                                    setResult(API_REQUEST_CODE)
+                                    finish()
+                                })
                             dlg.show()
+
                         }
                         else{
                             Log.d("responseFail", "${response.code()} ${response.message()}\n${responseBody.toString()}")

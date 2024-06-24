@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class MenuAdapter(
-    private val menuList: List<MenuItem>,
+    private val menuList: MutableList<MenuItem>,
     private val itemClickListener: OnMenuItemClickListener
 ) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
