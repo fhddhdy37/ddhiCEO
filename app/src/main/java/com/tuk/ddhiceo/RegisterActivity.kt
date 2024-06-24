@@ -34,6 +34,7 @@ class RegisterActivity : AppCompatActivity() {
 
         mEtEmail = findViewById(R.id.et_email)
         mEtPwd = findViewById(R.id.et_pwd)
+        mEtPwdConfirm = findViewById(R.id.et_pwd_confirm)
         mBtnRegister = findViewById(R.id.btn_register)
         mApi = findViewById(R.id.api)
 
